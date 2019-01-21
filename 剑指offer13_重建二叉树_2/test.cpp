@@ -36,7 +36,6 @@ public:
 	BinaryTree* BuyNewNode(DataType data){
 		BinaryTree* NewNode = new BinaryTree(data);
 		if (NewNode == nullptr){
-			assert(NewNode);
 			return nullptr;
 		}
 		return NewNode;
@@ -76,7 +75,7 @@ public:
 				Start_Inorder, cur - 1);
 		}
 		if (leftlength < End_Preorder - Start_Preorder){
-			_root->_right = Rebulid_Binary_Tree(Start_Preorder + 1, End_Preorder,
+			_root->_right = Rebulid_Binary_Tree(Start_Preorder+leftlength, End_Preorder,
 				cur+1, End_Inorder);
 		}
 		return _root;
