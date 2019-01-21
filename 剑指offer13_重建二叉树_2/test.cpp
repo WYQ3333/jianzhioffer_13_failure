@@ -55,7 +55,7 @@ public:
 		while (cur <= End_Inorder&&*cur != _root->_data){
 			++cur;
 		}
-		if (cur > End_Inorder||*cur != _root->_data){
+		if (cur == End_Inorder&&*cur != _root->_data){
 			assert(0);
 			perror("can't rebulid binarytree\n");
 			return nullptr;
