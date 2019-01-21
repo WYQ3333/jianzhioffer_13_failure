@@ -51,6 +51,16 @@ public:
 			return nullptr;
 		}
 		//在中序遍历中查找根节点
+		if (Start_Preorder == End_Preorder){
+			if (Start_Preorder == End_Preorder
+				&&*Start_Preorder == *Start_Inorder){
+				return _root;
+			}
+			else{
+				throw std::exception("Inbalid input");
+			}
+		}
+
 		DataType* cur = Start_Inorder;
 		while (cur <= End_Inorder&&*cur != _root->_data){
 			++cur;
