@@ -22,6 +22,10 @@ struct BinaryTree{
 class CreateBinaryTree{
 public:
 	//构造函数
+	CreateBinaryTree()
+		:_root(nullptr)
+	{}
+
 	CreateBinaryTree(const DataType data){
 		_root->_data = data;
 		_root->_left = nullptr;
@@ -76,17 +80,43 @@ public:
 			Inorder, Inorder + length - 1);
 	}
 
+	//前序遍历
+	void PReorder(BinaryTree * pRoot){
+		if (pRoot == nullptr){
+			return;
+		}
+		cout << pRoot->_data << " ";
+		PReorder(pRoot->_left);
+		PReorder(pRoot->_right);
+	}
+
+	//后序遍历
+	void INeorder(BinaryTree * pRoot){
+		if (pRoot == nullptr){
+			return;
+		}
+
+		INeorder(pRoot->_left);
+		cout << pRoot->_data << " ";
+		INeorder(pRoot->_right);
+	}
+
 	//析构函数
 	~CreateBinaryTree(){
 
 	}
-private:
+public:
 	BinaryTree * _root;
 };
 
 
 void TestFunc(){
-
+	int Preorder[] = { 1, 2, 4, 7, 3, 5, 6, 8 };
+	int Inorder[] = { 4, 7, 2, 1, 5, 3, 8, 6 };
+	int length = 8;
+	CreateBinaryTree T1;
+	T1.Create_Binary_Tree(Preorder, Inorder, length);
+	T1.PReorder(T1._root);
 }
 
 int main(){
